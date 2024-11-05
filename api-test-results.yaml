@@ -1,0 +1,537 @@
+results:
+  'GET /v1/files/:file_key':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/comments':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/comments/:comment_id/reactions':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments/:comment_id/reactions'
+        user: ⚙️  ADMIN_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"error":true,"status":400,"message":"'comment_id' must be a valid
+            number, received type String","i18n":null}
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments/:comment_id/reactions'
+        user: "\U0001F537 DESIGN_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"error":true,"status":400,"message":"'comment_id' must be a valid
+            number, received type String","i18n":null}
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments/:comment_id/reactions'
+        user: ⚫️ DEVMODE_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"error":true,"status":400,"message":"'comment_id' must be a valid
+            number, received type String","i18n":null}
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/comments/:comment_id/reactions'
+        user: "\U0001F53A FREE_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"error":true,"status":400,"message":"'comment_id' must be a valid
+            number, received type String","i18n":null}
+  'GET /v1/files/:file_key/images':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/images'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/images'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/images'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/images'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/nodes':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/nodes'
+        user: ⚙️  ADMIN_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/nodes'
+        user: "\U0001F537 DESIGN_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/nodes'
+        user: ⚫️ DEVMODE_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/nodes'
+        user: "\U0001F53A FREE_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+  'GET /v1/files/:file_key/versions':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/versions'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/versions'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/versions'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/versions'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/images/:file_key':
+    - request:
+        method: GET
+        endpoint: '/v1/images/:file_key'
+        user: ⚙️  ADMIN_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+    - request:
+        method: GET
+        endpoint: '/v1/images/:file_key'
+        user: "\U0001F537 DESIGN_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+    - request:
+        method: GET
+        endpoint: '/v1/images/:file_key'
+        user: ⚫️ DEVMODE_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+    - request:
+        method: GET
+        endpoint: '/v1/images/:file_key'
+        user: "\U0001F53A FREE_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 400 -
+            {"status":400,"err":"{\"params\":[\"file_key\"],\"query\":[\"ids\"]}
+            are required."}
+  GET /v1/me:
+    - request:
+        method: GET
+        endpoint: /v1/me
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: /v1/me
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: /v1/me
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: /v1/me
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/components':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/components'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/components'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/components'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/components'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/component_sets':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/component_sets'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/component_sets'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/component_sets'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/component_sets'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/dev_resources':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/dev_resources'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/dev_resources'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/dev_resources'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/dev_resources'
+        user: "\U0001F53A FREE_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 404 - {"error":true,"status":404,"message":"File
+            not found","i18n":"error.not_found"}
+  'GET /v1/files/:file_key/styles':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/styles'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/styles'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/styles'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/styles'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/teams/:team_id/components':
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/components'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/components'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/components'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/components'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/teams/:team_id/component_sets':
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/component_sets'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/component_sets'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/component_sets'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/component_sets'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/teams/:team_id/projects':
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/projects'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/projects'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/projects'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/projects'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/teams/:team_id/styles':
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/styles'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/styles'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/styles'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/teams/:team_id/styles'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v2/teams/:team_id/webhooks':
+    - request:
+        method: GET
+        endpoint: '/v2/teams/:team_id/webhooks'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v2/teams/:team_id/webhooks'
+        user: "\U0001F537 DESIGN_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 403 - {"error":true,"status":403,"message":"You
+            don't have permission to access this team.","i18n":null}
+    - request:
+        method: GET
+        endpoint: '/v2/teams/:team_id/webhooks'
+        user: ⚫️ DEVMODE_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 403 - {"error":true,"status":403,"message":"You
+            don't have permission to access this team.","i18n":null}
+    - request:
+        method: GET
+        endpoint: '/v2/teams/:team_id/webhooks'
+        user: "\U0001F53A FREE_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 403 - {"error":true,"status":403,"message":"You
+            don't have permission to access this team.","i18n":null}
+  GET /v1/activity_logs:
+    - request:
+        method: GET
+        endpoint: /v1/activity_logs
+        user: ⚙️  ADMIN_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 401 -
+            {"error":true,"status":401,"message":"OAuth token is not passed in
+            the Bearer authorization header."}
+    - request:
+        method: GET
+        endpoint: /v1/activity_logs
+        user: "\U0001F537 DESIGN_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 401 -
+            {"error":true,"status":401,"message":"OAuth token is not passed in
+            the Bearer authorization header."}
+    - request:
+        method: GET
+        endpoint: /v1/activity_logs
+        user: ⚫️ DEVMODE_USER
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 401 -
+            {"error":true,"status":401,"message":"OAuth token is not passed in
+            the Bearer authorization header."}
+    - request:
+        method: GET
+        endpoint: /v1/activity_logs
+        user: "\U0001F53A FREE_USER"
+        status: ❌ FAILED
+        error:
+          status: 500
+          message: >-
+            HTTP error! Status: 401 -
+            {"error":true,"status":401,"message":"OAuth token is not passed in
+            the Bearer authorization header."}
+  'GET /v1/files/:file_key/variables/local':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/local'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/local'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/local'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/local'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
+  'GET /v1/files/:file_key/variables/published':
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/published'
+        user: ⚙️  ADMIN_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/published'
+        user: "\U0001F537 DESIGN_USER"
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/published'
+        user: ⚫️ DEVMODE_USER
+        status: ✅ SUCCESS
+    - request:
+        method: GET
+        endpoint: '/v1/files/:file_key/variables/published'
+        user: "\U0001F53A FREE_USER"
+        status: ✅ SUCCESS
