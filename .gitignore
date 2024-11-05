@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Deno specific
+deno.lock
+
+# Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Generated files
+api-permissions-matrix.csv
+api-test-results.yaml
+
+# Logs
+*.log

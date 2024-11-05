@@ -1,12 +1,12 @@
 import { ApiConfig } from "./types.ts";
 
 // Environment validation
-function validateEnvVar(name: string, required: boolean = true): string | undefined {
+function validateEnvVar(name: string, required: boolean = true): string {
     const value = Deno.env.get(name);
     if (required && !value) {
         throw new Error(`${name} is not defined in environment variables`);
     }
-    return value || undefined;
+    return value || '';
 }
 
 export const config: ApiConfig = {

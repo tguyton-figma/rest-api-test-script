@@ -1,7 +1,5 @@
 {
     "tasks": {
-      "start": "deno run --allow-net --watch=static/,routes/,data/ dev.ts",
-      "test": "deno run --allow-net request_test.ts",
       "script": "deno run --allow-net --allow-env --allow-read --allow-write script.ts"
     }
   }

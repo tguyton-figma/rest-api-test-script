@@ -1,5 +1,5 @@
 import "https://deno.land/std@0.199.0/dotenv/load.ts";
-import * as YAML from "https://deno.land/std@0.199.0/yaml/mod.ts";
+import { ReportGenerator } from "./src/report-generator.ts";
 
 function validateEnvVar(name: string): string {
     const value = Deno.env.get(name);
@@ -110,80 +110,52 @@ export async function getRequest<T>(url: string, token: string): Promise<T> {
   // Function to test GET requests
   async function testGetRequests() {
     testResults.length = 0;
-    const groupedByEndpoint: Record<string, TestResult[]> = {};
     
     for (const [userType, token] of Object.entries(userTokens)) {
-      for (const endpoint of endpoints.GET) {
-        const url = `${baseURL}${endpoint}`
-          .replace(':file_key', fileKeys.CAN_VIEW)
-          .replace(':team_id', teamId.TEAM_ID)
-          .replace(':comment_id', 'someCommentId');
-  
-        try {
-          await getRequest(url, token);
-          const result = {
-            request: {
-              method: 'GET',
-              endpoint,
-              user: `${userSymbols[userType] || '👤'} ${userType}`,
-              status: '✅ SUCCESS'
+        for (const endpoint of endpoints.GET) {
+            const url = `${baseURL}${endpoint}`
+                .replace(':file_key', fileKeys.CAN_VIEW)
+                .replace(':team_id', teamId.TEAM_ID)
+                .replace(':comment_id', 'someCommentId');
+
+            try {
+                await getRequest(url, token);
+                const result = {
+                    request: {
+                        method: 'GET',
+                        endpoint,
+                        user: `${userSymbols[userType] || '👤'} ${userType}`,
+                        status: '✅ SUCCESS'
+                    }
+                };
+                testResults.push(result);
+            } catch (error) {
+                const result = {
+                    request: {
+                        method: 'GET',
+                        endpoint,
+                        user: `${userSymbols[userType] || '👤'} ${userType}`,
+                        status: '❌ FAILED',
+                        error: {
+                            status: error instanceof Error && 'status' in error ? (error as { status: number }).status : 500,
+                            message: error instanceof Error ? error.message : String(error)
+                        }
+                    }
+                };
+                testResults.push(result);
             }
-          };
-          testResults.push(result);
-        } catch (error) {
-          const result = {
-            request: {
-              method: 'GET',
-              endpoint,
-              user: `${userSymbols[userType] || '👤'} ${userType}`,
-              status: '❌ FAILED',
-              error: {
-                status: error instanceof Error && 'status' in error ? (error as { status: number }).status : 500,
-                message: error instanceof Error ? error.message : String(error)
-              }
-            }
-          };
-          testResults.push(result);
         }
-        
-        // Group the results
-        const result = testResults[testResults.length - 1];
-        if (result) {
-          const key = `${result.request.method} ${result.request.endpoint}`;
-          if (!groupedByEndpoint[key]) {
-            groupedByEndpoint[key] = [];
-          }
-          groupedByEndpoint[key].push(result);
-        }
-      }
     }
 
-    // Create a clean object for YAML
-    const cleanResults = Object.fromEntries(
-      Object.entries(groupedByEndpoint)
-        .filter(([_, values]) => values && values.length > 0)
-        .map(([key, values]) => [
-          key,
-          values.map(v => ({
-            request: {
-              method: v.request.method,
-              endpoint: v.request.endpoint,
-              user: v.request.user,
-              status: v.request.status,
-              ...(v.request.error && { error: v.request.error })
-            }
-          }))
-        ])
-    );
-
-    // Write results to YAML file
-    await Deno.writeTextFile(
-      "./api-test-results.yaml",
-      YAML.stringify({ results: cleanResults }),
-      { create: true }
-    );
+    const allEndpoints = endpoints.GET;
+    const allUserTypes = Object.keys(userTokens);
     
-    console.log("Results saved to api-test-results.yaml");
+    try {
+        await ReportGenerator.generateReports(testResults, allEndpoints, allUserTypes);
+    } catch (error) {
+        console.error("Failed to generate reports:", error);
+        throw error;
+    }
   }
 
 
