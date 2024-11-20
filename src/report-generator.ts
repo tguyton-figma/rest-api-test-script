@@ -66,11 +66,16 @@ export class ReportGenerator {
     }
 
     private static generateCsvRows(results: TestResult[], endpoints: string[], userTypes: string[]): string[] {
-        const header = [`Endpoint,${userTypes.map(user => `${userSymbols[user] || '👤'} ${user}`).join(',')}`];
+        const timestamp = new Date().toISOString();
+        const header = [
+            `# Generated: ${timestamp}`,
+            `Method,Endpoint,${userTypes.map(user => `${userSymbols[user] || '👤'} ${user}`).join(',')}`
+        ];
         const resultMap = this.createResultMap(results);
         
         const dataRows = endpoints.map(endpoint => {
-            const rowData = [endpoint];
+            const method = results.find(r => r.request.endpoint === endpoint)?.request.method || 'GET';
+            const rowData = [method, endpoint];
             userTypes.forEach(userType => {
                 const status = resultMap.get(endpoint)?.get(userType) || 'N/A';
                 rowData.push(status);
