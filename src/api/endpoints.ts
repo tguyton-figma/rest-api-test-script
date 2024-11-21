@@ -18,13 +18,21 @@ export class EndpointProcessor {
             path: "/v1/files/:file_key/comments",
             body: {
                 message: "Test comment",
-                message_meta: { x: 0, y: 0 }
+                client_meta: {
+                    node_id: "1:1",
+                    node_offset: {
+                        x: 0,
+                        y: 0
+                    }
+                }
             }
         },
         { 
             method: HttpMethod.POST, 
             path: "/v1/files/:file_key/comments/:comment_id/reactions",
-            body: { emoji: "👍" }
+            body: { 
+                reaction_type: "👍"
+            }
         },
         { 
             method: HttpMethod.POST, 
@@ -32,8 +40,9 @@ export class EndpointProcessor {
             body: { 
                 dev_resources: [{
                     name: "Test Resource",
-                    type: "colors",
-                    values: []
+                    url: "https://example.com",
+                    file_key: config.fileKeys.CAN_EDIT,
+                    node_id: "1:1"
                 }]
             }
         },
