@@ -1,3 +1,4 @@
+import "@std/dotenv/load";
 import { ApiConfig } from "./types.ts";
 
 // Environment validation

@@ -1,5 +1,8 @@
 {
     "tasks": {
       "script": "deno run --allow-net --allow-env --allow-read --allow-write script.ts"
+    },
+    "imports": {
+        "@std/dotenv": "jsr:@std/dotenv@^0.225.2"
     }
   }
